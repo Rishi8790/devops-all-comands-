@@ -48,3 +48,17 @@ kubctl expose deployment.apps/web --port 80 --name httpd.service --type LoadBala
 mkdir k8-scripts
 vi pod.yaml
 kubectl apply -f pod.yaml
+[prometheus]
+cd prometheus.file
+sudo cp -r . /usr/local/bin/prometheus
+[prometheus service file]
+sudo vi /etc/systemd/system/prometheus.service
+
+[Unit]
+Description=Prometheus Service
+After=network.target
+[Service]
+Type=Simple
+ExecStart=usr/local/bin/prometheus/prometheus --config.file=/usr/local/bin/prometheus/prometheus.yml
+[Install]
+WantedBy=multi.user.target
