@@ -12,6 +12,7 @@ docker ps -ef
 docker run -dt name of the image
 docker run -it name of the image
 docker rmi -f  name of the image to remove image id
+docker rm -f   to remove container
 docker volumes
 docker run -dt --name c1 -v /app-data httpd[named volumes]
 docker prune [to delete volume]
